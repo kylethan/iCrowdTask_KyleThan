@@ -1,0 +1,53 @@
+h1 {
+  color: #1D5279;
+  text-align: center;
+}
+h3 {
+  text-align: center;
+  align-items: center;
+}
+label {
+  color: #000000;
+}
+
+.collumn {
+  padding-top: 20px;
+}
+.register_form {
+  margin: auto;
+  width: 400px;
+  border: transparent;
+  padding: 15px;
+}
+
+.fill {
+  width: 97.9%;
+}
+.button {
+  text-align: center;
+  padding: 15px;
+}
+button {
+  background-color: #1D5279;
+  padding: 5px;
+  font-style: initial;
+  font-size: 15px;
+  color: antiquewhite;
+}
+.half {
+  width: 47%;
+}
+.last_name{
+  margin-left: 122px;
+}
+.lastname{
+  width: 48%;
+  margin-right: 0px;
+}
+.result{
+  text-align: center;
+  align-items: center;
+  font-size: 50px;
+  color: #1D5279;
+}
+
