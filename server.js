@@ -49,7 +49,7 @@ passport.use(
         {
             clientID: keys.google.clientID,
             clientSecret: keys.google.clientSecret,
-            callbackURL: "http://localhost:8080/auth/google/redirect"
+            callbackURL: "http://kyleicrowdtask.herokuapp.com/auth/google/redirect"
         }, (accessToken, refreshToken, profile, done) => {
             // passport callback function
             //check if user already exists in our db with the given profile ID
