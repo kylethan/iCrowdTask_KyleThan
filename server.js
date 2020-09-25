@@ -207,7 +207,7 @@ app.post("/forget", async function (req, res) {
                 return res.send(error);
               } else {
                 console.log("Email sent: " + info.response);
-                return res.send("Check you email to reset new password");
+                return res.send("Please kindly check your email for password recover mail");
               }
             });
           }
