@@ -13,7 +13,6 @@ const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const keys = require("./config/keys");
 const session = require("express-session");
-const cookieSession = require("cookie-session");
 var crypto = require("crypto");
 var LocalStrategy = require('passport-local').Strategy;
 var nodemailer = require("nodemailer");
@@ -26,7 +25,7 @@ app.use(
   session({
     resave: true,
     saveUninitialized: true,
-    secret: "$$$DeakinSecret",
+    secret: "kylethan",
   })
 );
 app.use(passport.initialize());
@@ -51,14 +50,13 @@ passport.use(
             clientSecret: keys.google.clientSecret,
             callbackURL: "http://kyleicrowdtask.herokuapp.com/auth/google/redirect"
         }, (accessToken, refreshToken, profile, done) => {
-            // passport callback function
-            //check if user already exists in our db with the given profile ID
+            
             Register.findOne({googleId: profile.id}).then((currentUser)=>{
               if(currentUser){
-                //if we already have a record with the given profile ID
+
                 done(null, currentUser);
               } else{
-                   //if not, create a new user 
+                 
                   new Register({
                     googleId: profile.id,
                     countries: "Australia",
@@ -147,7 +145,7 @@ app.get("/forget", (req, res) => {
 app.get("/reset/:token", (req, res) => {
     Register.findOne({ password_token: req.params.token }, (err, user) => {
       if (!user) {
-        return res.send("Invalid link, we can not find the user");
+        return res.send("This email is not registered, please try again");
       }
   
       res.render("reset", {
@@ -165,7 +163,6 @@ var transporter = nodemailer.createTransport({
       pass: "kylethan1105",
     },
     tls: {
-      // do not fail on invalid certs
       rejectUnauthorized: true,
     },
 });
